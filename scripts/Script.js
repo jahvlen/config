@@ -82,7 +82,7 @@ function overwriteRules(config) {
       path: "./rulesets/loyalsoldier/icloud.yaml",
     },
 
-    ChatGPT:{
+    OpenAI:{
       ...ruleProviderCommon,
       behavior: "classical",
       url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml",
@@ -93,12 +93,6 @@ function overwriteRules(config) {
       behavior: "ipcidr",
       url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt",
       path: "./rulesets/loyalsoldier/telegramcidr.yaml",
-    },
-    google: {
-      ...ruleProviderCommon,
-      behavior: "domain",
-      url: "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt",
-      path: "./rulesets/loyalsoldier/google.yaml",
     },
     proxy: {
       ...ruleProviderCommon,
@@ -142,20 +136,13 @@ function overwriteRules(config) {
 
   // 规则
   const rules = [
-    // 自定义规则
-    "DOMAIN-SUFFIX,googleapis.cn,Google", // Google服务
-    "DOMAIN-SUFFIX,gstatic.com,Google", // Google静态资源
-    "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,Google", // Google Play下载服务
-    "DOMAIN-SUFFIX,github.io,PROXY", // Github Pages
-    "DOMAIN,v2rayse.com,PROXY",     // V2rayse节点工具
     // Loyalsoldier 规则集
     "RULE-SET,reject,REJECT",
     "RULE-SET,icloud,DIRECT",
     "RULE-SET,apple,DIRECT",
 
-    "RULE-SET,ChatGPT,ChatGPT",
+    "RULE-SET,OpenAI,ChatGPT",
     "RULE-SET,telegramcidr,Telegram,no-resolve",
-    "RULE-SET,google,Google",
     "RULE-SET,proxy,国外网站",
 
     "RULE-SET,applications,DIRECT",
@@ -194,41 +181,35 @@ function overwriteProxyGroups(config) {
       name: "PROXY",
       type: "select",
       "include-all": true,
+      proxies: ["美国", "香港", "新加坡", "日本", "台湾", "英国", "DIRECT"],
       icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/Proxy.png",
     },
     {
       ...groupBaseOption,
       name: "ChatGPT",
       type: "select",
-      proxies: ["PROXY", "美国", "英国", "新加坡", "日本", "台湾", "香港", "DIRECT"],
+      proxies: ["PROXY", "美国", "香港", "新加坡", "日本", "台湾", "英国", "DIRECT"],
       icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/ChatGPT.png",
     },
     {
       ...groupBaseOption,
       name: "Telegram",
       type: "select",
-      proxies: ["PROXY", "美国", "英国", "新加坡", "日本", "台湾", "香港", "DIRECT"],
+      proxies: ["PROXY", "美国", "香港", "新加坡", "日本", "台湾", "英国", "DIRECT"],
       icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/Telegram.png",
-    },
-    {
-      ...groupBaseOption,
-      name: "Google",
-      type: "select",
-      proxies: ["PROXY", "美国", "英国", "新加坡", "日本", "台湾", "香港", "DIRECT"],
-      icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/Google.png",
     },
     {
       ...groupBaseOption,
       name: "国外网站",
       type: "select",
-      proxies: ["PROXY", "美国", "英国", "新加坡", "日本", "台湾", "香港", "DIRECT"],
+      proxies: ["PROXY", "美国", "香港", "新加坡", "日本", "台湾", "英国", "DIRECT"],
       icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/Global.png",
     },
     {
       ...groupBaseOption,
       name: "漏网之鱼",
       type: "select",
-      proxies: ["PROXY", "美国", "英国", "新加坡", "日本", "台湾", "香港", "DIRECT"],
+      proxies: ["PROXY", "美国", "香港", "新加坡", "日本", "台湾", "英国", "DIRECT"],
       icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/fish.svg",
     },
     // 过滤区域代理组
@@ -242,11 +223,11 @@ function overwriteProxyGroups(config) {
     },
     {
       ...groupBaseOption,
-      name: "英国",
+      name: "香港",
       type: "select",
-      filter: "英国|🇬🇧|UK|(?i)UnitedKingdom",
+      filter: "香港|🇭🇰|HK|(?i)HongKong",
       "include-all": true,
-      icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/United Kingdom.png",
+      icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/Hong Kong.png",
     },
     {
       ...groupBaseOption,
@@ -274,11 +255,11 @@ function overwriteProxyGroups(config) {
     },
     {
       ...groupBaseOption,
-      name: "香港",
+      name: "英国",
       type: "select",
-      filter: "香港|🇭🇰|HK|(?i)HongKong",
+      filter: "英国|🇬🇧|UK|(?i)UnitedKingdom",
       "include-all": true,
-      icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/Hong Kong.png",
+      icon: "https://raw.githubusercontent.com/jahvlen/config/main/icons/United Kingdom.png",
     }
   ];
   
