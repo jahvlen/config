@@ -1,0 +1,71 @@
+# === Google AI 全家桶融合规则（含 Antigravity / Gemini / AI Studio / NotebookLM） ===
+
+# 1. Antigravity / Gemini Code Assist / Android Studio（核心修复项）
+HOST,antigravity.googleapis.com,Gemini
+HOST,antigravity-pa.googleapis.com,Gemini
+HOST-SUFFIX,antigravity.google,Gemini
+HOST-SUFFIX,antigravity-unleash.goog,Gemini
+HOST,cloudaicompanion.googleapis.com,Gemini
+HOST,cloudcode-pa.googleapis.com,Gemini
+HOST,daily-cloudcode-pa.googleapis.com,Gemini
+HOST-SUFFIX,cloudcode-pa.sandbox.googleapis.com,Gemini
+HOST-SUFFIX,aicode.googleapis.com,Gemini
+HOST-SUFFIX,aida.googleapis.com,Gemini
+
+# 2. Gemini 网页、手机端与生成式 API
+HOST-SUFFIX,gemini.google,Gemini
+HOST-SUFFIX,gemini.google.com,Gemini
+HOST-SUFFIX,gemini.gstatic.com,Gemini
+HOST-SUFFIX,bard.google.com,Gemini
+HOST,geminiweb-pa.clients.google.com,Gemini
+HOST,geminiweb-pa.clients6.google.com,Gemini
+HOST-SUFFIX,robinfrontend-pa.googleapis.com,Gemini
+HOST-SUFFIX,proactivebackend-pa.googleapis.com,Gemini
+HOST-SUFFIX,geller-pa.googleapis.com,Gemini
+HOST-KEYWORD,generativelanguage,Gemini
+
+# 3. AI Studio & Colab（保留了旧规则里的 colab 等条目）
+HOST-SUFFIX,generativeai.google,Gemini
+HOST-SUFFIX,makersuite.google.com,Gemini
+HOST-SUFFIX,ai.studio,Gemini
+HOST-SUFFIX,aistudio.google.com,Gemini
+HOST,ai.google.dev,Gemini
+HOST,alkalicore-pa.clients6.google.com,Gemini
+HOST,alkalimakersuite-pa.clients6.google.com,Gemini
+HOST,webchannel-alkalimakersuite-pa.clients6.google.com,Gemini
+HOST-KEYWORD,colab,Gemini
+HOST-KEYWORD,developerprofiles,Gemini
+HOST-SUFFIX,apis.google.com,Gemini
+
+# 4. NotebookLM
+HOST-SUFFIX,notebook.google,Gemini
+HOST-SUFFIX,notebook.google.com,Gemini
+HOST-SUFFIX,notebooklm.google,Gemini
+HOST-SUFFIX,notebooklm.google.com,Gemini
+HOST,notebooklm-pa.googleapis.com,Gemini
+HOST,notebooklm.googleapis.com,Gemini
+HOST-SUFFIX,labstailwind.pa.googleapis.com,Gemini
+
+# 5. Labs / DeepMind / Vertex AI
+HOST-SUFFIX,labs.google,Gemini
+HOST-SUFFIX,labs.google.com,Gemini
+HOST-SUFFIX,flow.google,Gemini
+HOST-SUFFIX,flow.google.com,Gemini
+HOST-SUFFIX,aisandbox-pa.googleapis.com,Gemini
+HOST-SUFFIX,jules.google,Gemini
+HOST-SUFFIX,jules.google.com,Gemini
+HOST-SUFFIX,opal.google,Gemini
+HOST-SUFFIX,opal.google.com,Gemini
+HOST-SUFFIX,stitch.withgoogle.com,Gemini
+HOST-SUFFIX,deepmind.google,Gemini
+HOST-SUFFIX,deepmind.com,Gemini
+HOST,aiplatform.googleapis.com,Gemini
+HOST-WILDCARD,*-aiplatform.googleapis.com,Gemini
+
+# 补充：Google Workspace 内置 AI 与 Gemma
+HOST,appsgenaiserver-pa.clients.google.com,Gemini
+HOST,appsgenaiserver-pa.clients6.google.com,Gemini
+HOST,appsgenaiserver-pa.googleapis.com,Gemini
+HOST-SUFFIX,gemma.ai,Gemini
+
+
